@@ -1,0 +1,18 @@
+{
+  "diagnostic.errorSign": "✖",
+  "diagnostic.warningSign": "↦",
+  "diagnostic.infoSign": "ｉ",
+  "diagnostic.hintSign": "»",
+  "prettier.arrowParens": "avoid",
+  "prettier.bracketSpacing": true,
+  "prettier.htmlWhitespaceSensitivity": "ignore",
+  "prettier.jsxSingleQuote": false,
+  "prettier.printWidth": 80,
+  "prettier.proseWrap": "preserve",
+  "prettier.semi": false,
+  "prettier.singleQuote": true,
+  "prettier.tabWidth": 2,
+  "prettier.trailingComma": "none",
+  "prettier.useTabs": false,
+  "prettier.eslintIntegration": false
+}
