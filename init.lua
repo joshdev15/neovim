@@ -1,0 +1,5 @@
+require("neovim-settings")
+require("neovim-maps")
+require("plugins")
+require("plugins-settings")
+require("plugins-maps")
