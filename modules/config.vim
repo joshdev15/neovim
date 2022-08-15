@@ -127,3 +127,5 @@ let g:coc_global_extensions = [
 " autocmd BufNew,BufEnter *.go execute "silent! CocDisable"
 " autocmd BufLeave *.go execute "silent! CocEnable"
 " let g:deoplete#enable_at_startup = 1
+
+colorscheme gruvbox-material

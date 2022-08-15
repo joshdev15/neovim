@@ -11,6 +11,8 @@ let mapleader=' '
 :noremap <Leader>q :q<cr>
 :noremap <Leader>Q :q!<cr>
 
+:noremap <C-w> <C-w>=
+
 :vnoremap ;; <Esc>
 :inoremap ;; <Esc>
 :xnoremap ;; <Esc>
@@ -80,12 +82,20 @@ endfunction
 
 " Coc Maps
 inoremap <silent><expr> <TAB>
-  \ pumvisible() ? "\<C-n>" :
-  \ <SID>CheckBackSpace() ? "\<TAB>" :
-  \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+      \ coc#pum#visible() ? coc#pum#next(1):
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 function! s:CheckBackSpace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
@@ -94,7 +104,22 @@ inoremap <silent><expr> <c-space> coc#refresh()
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-nnoremap <silent> U :call <SID>show_documentation()<CR>
+nnoremap <silent> K :call ShowDocumentation()<CR>
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
 
 " Prettier / CocPrettier Maps
 :noremap <Leader>p :CocCommand prettier.formatFile<cr>
+
+" nnoremap <silent><nowait><expr> <Alt>f coc#float#has_scroll() ? coc#float#scroll(1) : "\<Alt>f"
+" nnoremap <silent><nowait><expr> <Alt>b coc#float#has_scroll() ? coc#float#scroll(0) : "\<Alt>b"
+" inoremap <silent><nowait><expr> <Alt>f coc#float#has_scroll() ? "\<Alt>f=coc#float#scroll(1)\<cr>" : "\<Right>"
+" inoremap <silent><nowait><expr> <Alt>b coc#float#has_scroll() ? "\<Alt>b=coc#float#scroll(0)\<cr>" : "\<Left>"
+" vnoremap <silent><nowait><expr> <Alt>f coc#float#has_scroll() ? coc#float#scroll(1) : "\<Alt>f"
+" vnoremap <silent><nowait><expr> <Alt>b coc#float#has_scroll() ? coc#float#scroll(0) : "\<Alt>b"
