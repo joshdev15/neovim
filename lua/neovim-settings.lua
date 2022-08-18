@@ -1,23 +1,30 @@
-vim.o.number = true
-vim.o.rnu = true
-vim.o.numberwidth = 1
-vim.o.clipboard = "unnamed" 
-vim.o.swapfile = false
-vim.o.backup = false
-vim.o.t_Co = "256k" 
-vim.o.background = "dark"
-vim.o.showmatch = true
-vim.o.showmode = false
-vim.o.sw = 2
-vim.o.hlsearch = true
-vim.o.linebreak = true
-vim.o.incsearch = true
-vim.o.termguicolors = true
-vim.o.scrolloff = 10
-vim.o.signcolumn = "yes"
-vim.o.ignorecase = true
-vim.o.updatetime = 300
-vim.o.splitright = true
--- vim.o.undodir = "~/.config/nvim/undo"
--- vim.o.undofile = true
--- vim.o.undolevels = 50
+local o = vim.o
+local bo = vim.bo
+local set = vim.opt
+
+-- Global Options
+o.t_Co = "256k" 
+
+-- Buffers Options
+bo.matchpairs = "(:),{:},[:],<:>,':'"
+
+-- Optional Settings
+set.number = true
+set.rnu = true
+set.numberwidth = 2
+set.clipboard = "unnamed" 
+set.swapfile = false
+set.backup = false
+set.background = "dark"
+set.showmatch = true
+set.showmode = false
+set.sw = 2
+set.hlsearch = true
+set.linebreak = true
+set.incsearch = true
+set.termguicolors = true
+set.scrolloff = 10
+set.signcolumn = "yes"
+set.ignorecase = true
+set.updatetime = 300
+set.splitright = true

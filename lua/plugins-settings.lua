@@ -1,3 +1,11 @@
+-- Gruvbox Theme
+-- -- [hard, medium, soft]
+-- -- [material, mix, original]
+vim.g.gruvbox_material_background = 'hard'
+vim.g.gruvbox_material_foreground = 'mix' 
+vim.g.gruvbox_material_better_performance = 1
+vim.g.gruvbox_material_ui_contrast = "low"
+
 -- Vim JSX Pretty
 vim.g.vim_jsx_pretty_colorful_config = 1
 
@@ -51,7 +59,7 @@ vim.g.gitgutter_sign_modified_removed = "∣"
 require('lualine').setup {
   options = {
     icons_enabled = false,
-    theme = 'gruvbox-material',
+    theme = 'auto',
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
     disabled_filetypes = {
@@ -69,8 +77,8 @@ require('lualine').setup {
   },
   sections = {
     lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff', 'diagnostics'},
-    lualine_c = {'filename'},
+    lualine_b = {'branch', 'diff'},
+    lualine_c = {{'filename', path = 1}},
     lualine_x = {},
     lualine_y = {'progress'},
     lualine_z = {'location'}
@@ -78,7 +86,7 @@ require('lualine').setup {
   inactive_sections = {
     lualine_a = {},
     lualine_b = {},
-    lualine_c = {'filename'},
+    lualine_c = {{'filename', path = 1}},
     lualine_x = {'location'},
     lualine_y = {},
     lualine_z = {}
@@ -96,7 +104,6 @@ require('tabline').setup({
     no_name = 'No name',
 })
 
-vim.cmd([[colorscheme gruvbox-material]])
-vim.g.gruvbox_material_background = 'hard'
-vim.g.gruvbox_material_palette = 'original'
+require('nvim-treesitter').setup()
 
+vim.cmd([[colorscheme gruvbox-material]])

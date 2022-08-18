@@ -11,16 +11,15 @@ require "paq" {
     -- Features
     'preservim/nerdtree';
     'scrooloose/nerdcommenter';
-    -- 'itchyny/lightline.vim';
     'tpope/vim-fugitive';
     'airblade/vim-gitgutter';
     'junegunn/fzf';
     'junegunn/fzf.vim';
     'github/copilot.vim';
     'editorconfig/editorconfig-vim';
-    'editorconfig/editorconfig-vim';
     'nvim-lualine/lualine.nvim';
     'joshdev15/nvim-tabline';
+    {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' };
 
     -- Themes
     'sainnhe/gruvbox-material';
