@@ -5,8 +5,8 @@ local set = vim.opt
 -- Global Options
 o.t_Co = "256k" 
 
--- Buffers Options
-bo.matchpairs = "(:),{:},[:],<:>,':'"
+-- -- Buffers Options
+-- bo.matchpairs = "(:),{:},[:],<:>,':'"
 
 -- Optional Settings
 set.number = true

@@ -67,7 +67,7 @@ require('lualine').setup {
       winbar = {},
     },
     ignore_focus = {},
-    always_divide_middle = true,
+    always_divide_middle = false,
     globalstatus = false,
     refresh = {
       statusline = 1000,
@@ -104,6 +104,14 @@ require('tabline').setup({
     no_name = 'No name',
 })
 
-require('nvim-treesitter').setup()
+require'nvim-treesitter.configs'.setup {
+  sync_install = false,
+  auto_install = false,
+  ignore_install = { "javascript" },
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false,
+  },
+}
 
 vim.cmd([[colorscheme gruvbox-material]])

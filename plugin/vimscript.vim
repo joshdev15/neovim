@@ -72,6 +72,18 @@ function! ShowDocumentation()
   endif
 endfunction
 
+" Coc Defautl Config
+let g:coc_global_extensions = [
+  \ 'coc-css',
+  \ 'coc-html',
+  \ 'coc-json',
+  \ 'coc-tag',
+  \ 'coc-tsserver',
+  \ 'coc-vetur',
+  \ 'coc-prettier',
+  \ 'coc-omni'
+  \ ]
+
 "  function! Fugitive()
 "    if exists('*FugitiveHead')
 "      vim.g.branch = FugitiveHead()
