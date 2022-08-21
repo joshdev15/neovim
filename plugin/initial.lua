@@ -17,6 +17,7 @@ return require('packer').startup({
 		use 'styled-components/vim-styled-components'
 		use 'ap/vim-css-color'
 		use 'neovim/nvim-lspconfig'
+    use 'williamboman/nvim-lsp-installer'
 		use { 'prettier/vim-prettier',  run = 'yarn install --frozen-lockfile --production' }
 
 		-- Features

@@ -4,7 +4,7 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 local lspconfig = require('lspconfig')
 
-local servers = { 'tsserver', 'gopls' }
+local servers = { 'tsserver' , 'gopls', 'cssls', 'html', 'jsonls', 'sumneko_lua' }
 
 
 for _, lsp in ipairs(servers) do
