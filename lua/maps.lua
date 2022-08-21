@@ -24,3 +24,10 @@ SetMap("x", ";;", "<ESC>", true, false)
 SetMap("v", ";;", "<ESC>", true, false)
 SetMap("i", ";;", "<ESC>", true, false)
 SetMap("x", ";;", "<ESC>", true, false)
+
+SetMap("n", "<Leader>g", ":GitGutterPreviewHunk<CR>", true, false)
+SetMap("n", "<Leader>gg", ":GitGutterUndoHunk<CR>", true, false)
+SetMap("n", "<Leader>gl", ":Commits<CR>", true, false)
+
+SetMap("n", "<Leader>p", ":Prettier<CR>", true, false)
+

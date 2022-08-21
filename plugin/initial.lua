@@ -5,13 +5,19 @@ if fn.empty(fn.glob(install_path)) > 0 then
   vim.cmd [[packadd packer.nvim]]
 end
 
-return require('packer').startup(function(use)
-		-- Syntax
+return require('packer').startup({
+  function(use)
+	  -- Package Manager
+		use 'wbthomason/packer.nvim'
+
+		-- Languages & Syntax
 		use 'sheerun/vim-polyglot'
 		use { 'fatih/vim-go', run = ':GoUpdateBinaries' }
 		use 'rust-lang/rust.vim'
 		use 'styled-components/vim-styled-components'
 		use 'ap/vim-css-color'
+		use 'neovim/nvim-lspconfig'
+		use { 'prettier/vim-prettier',  run = 'yarn install --frozen-lockfile --production' }
 
 		-- Features
 		use 'preservim/nerdtree'
@@ -28,15 +34,26 @@ return require('packer').startup(function(use)
 		use 'tpope/vim-surround'
 		use 'jiangmiao/auto-pairs'
 		use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+		use 'hrsh7th/nvim-cmp'
+  	use 'hrsh7th/cmp-nvim-lsp'
+  	use 'saadparwaiz1/cmp_luasnip'
+  	use 'L3MON4D3/LuaSnip'
+		use 'nvim-lua/plenary.nvim'
+		use ('jose-elias-alvarez/null-ls.nvim')
+		use ('MunifTanjim/prettier.nvim')
 
 		-- Themes
 		use 'sainnhe/gruvbox-material'
 
-		-- Coc
-		use 'neoclide/coc.nvim'
-		use { 'yaegassy/coc-volar', run = 'yarn install --immutable' }
-
 		if packer_bootstrap then
     	require('packer').sync()
   	end
-end)
+	end,
+	config = {
+	  display = {
+	    open_fn = function()
+	      return require('packer.util').float({ border = 'single' })
+	    end
+	  }
+	}
+})
