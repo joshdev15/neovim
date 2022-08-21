@@ -20,6 +20,7 @@ It is also necessary to have the following programs installed and configured;
 - [Packer.nvim](https://github.com/wbthomason/packer.nvim)
 - [FZF](https://github.com/junegunn/fzf)
 - [Silver Searcher](https://github.com/ggreer/the_silver_searcher)
-- [Go (CLI / GOPLS "Language Server Protocol")](go.dev)
 
 Remember to set your environment variables and binary locations correctly.
+
+You can install any lsp server with :LspInstallInfo nvim command
