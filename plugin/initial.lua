@@ -16,25 +16,11 @@ return require('packer').startup({
 		use 'rust-lang/rust.vim'
 		use 'styled-components/vim-styled-components'
 		use 'ap/vim-css-color'
-		use 'neovim/nvim-lspconfig'
-    use 'williamboman/nvim-lsp-installer'
 		use { 'prettier/vim-prettier',  run = 'yarn install --frozen-lockfile --production' }
 
-		-- Features
-		use 'preservim/nerdtree'
-		use 'scrooloose/nerdcommenter'
-		use 'tpope/vim-fugitive'
-		use 'airblade/vim-gitgutter'
-		use 'junegunn/fzf'
-		use 'junegunn/fzf.vim'
-		use 'github/copilot.vim'
-		use 'editorconfig/editorconfig-vim'
-		use 'nvim-lualine/lualine.nvim'
-		use 'joshdev15/nvim-tabline'
-		use 'alvan/vim-closetag'
-		use 'tpope/vim-surround'
-		use 'jiangmiao/auto-pairs'
-		use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+		-- LSP
+		use 'neovim/nvim-lspconfig'
+    use 'williamboman/nvim-lsp-installer'
 		use 'hrsh7th/nvim-cmp'
   	use 'hrsh7th/cmp-nvim-lsp'
   	use 'saadparwaiz1/cmp_luasnip'
@@ -43,8 +29,24 @@ return require('packer').startup({
 		use ('jose-elias-alvarez/null-ls.nvim')
 		use ('MunifTanjim/prettier.nvim')
 
+		-- Features
+		use 'preservim/nerdtree'
+		use 'scrooloose/nerdcommenter'
+		use 'tpope/vim-fugitive'
+		use 'airblade/vim-gitgutter'
+		use 'junegunn/fzf'
+		use 'junegunn/fzf.vim'
+		use 'editorconfig/editorconfig-vim'
+		use 'nvim-lualine/lualine.nvim'
+		use 'joshdev15/nvim-tabline'
+		use 'tpope/vim-surround'
+		use 'jiangmiao/auto-pairs'
+		use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+		-- use 'github/copilot.vim'
+
 		-- Themes
 		use 'sainnhe/gruvbox-material'
+		use 'folke/tokyonight.nvim'
 
 		if packer_bootstrap then
     	require('packer').sync()

@@ -2,9 +2,16 @@
 -- -- [hard, medium, soft]
 -- -- [material, mix, original]
 vim.g.gruvbox_material_background = 'hard'
-vim.g.gruvbox_material_foreground = 'mix' 
+vim.g.gruvbox_material_foreground = 'original' 
 vim.g.gruvbox_material_better_performance = 1
 vim.g.gruvbox_material_ui_contrast = "low"
+
+-- TokyoNight Theme
+vim.g.tokyonight_style = 'night'
+vim.g.tokyonight_transparent = true
+vim.g.tokyonight_lualine_bold = true
+vim.g.tokyonight_italic_comments = false
+vim.g.tokyonight_italic_keywords = false
 
 -- Vim JSX Pretty
 vim.g.vim_jsx_pretty_colorful_config = 1
@@ -77,11 +84,11 @@ require('lualine').setup {
   },
   sections = {
     lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff'},
+    lualine_b = {'branch','diff'},
     lualine_c = {{'filename', path = 1}},
-    lualine_x = {'filetype'},
-    lualine_y = {'progress'},
-    lualine_z = {'location'}
+    lualine_x = {},
+    lualine_y = {'location'},
+    lualine_z = {'progress'}
   },
   inactive_sections = {
     lualine_a = {},
@@ -134,5 +141,3 @@ prettier.setup({
     "yaml",
   },
 })
-
-vim.cmd([[colorscheme gruvbox-material]])

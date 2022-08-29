@@ -89,11 +89,6 @@ _G.packer_plugins = {
     path = "/home/joshua/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
-  ["copilot.vim"] = {
-    loaded = true,
-    path = "/home/joshua/.local/share/nvim/site/pack/packer/start/copilot.vim",
-    url = "https://github.com/github/copilot.vim"
-  },
   ["editorconfig-vim"] = {
     loaded = true,
     path = "/home/joshua/.local/share/nvim/site/pack/packer/start/editorconfig-vim",
@@ -139,6 +134,11 @@ _G.packer_plugins = {
     path = "/home/joshua/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
+  ["nvim-lsp-installer"] = {
+    loaded = true,
+    path = "/home/joshua/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
+    url = "https://github.com/williamboman/nvim-lsp-installer"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/joshua/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
@@ -174,10 +174,10 @@ _G.packer_plugins = {
     path = "/home/joshua/.local/share/nvim/site/pack/packer/start/rust.vim",
     url = "https://github.com/rust-lang/rust.vim"
   },
-  ["vim-closetag"] = {
+  ["tokyonight.nvim"] = {
     loaded = true,
-    path = "/home/joshua/.local/share/nvim/site/pack/packer/start/vim-closetag",
-    url = "https://github.com/alvan/vim-closetag"
+    path = "/home/joshua/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
+    url = "https://github.com/folke/tokyonight.nvim"
   },
   ["vim-css-color"] = {
     loaded = true,
