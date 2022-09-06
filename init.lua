@@ -8,9 +8,6 @@ local set = vim.opt
 -- Global Options
 o.t_Co = "256k" 
 
--- -- Buffers Options
-bo.matchpairs = "(:),{:},[:],<:>,':'"
-
 -- Optional Settings
 set.number = true
 set.rnu = true
@@ -32,13 +29,13 @@ set.ignorecase = true
 set.updatetime = 300
 set.splitright = true
 
+-- Custom Maps
+require "maps"
+
 -- Plugins Settings
 require "settings"
 
 -- LSP Settings
 require "lsp"
-
--- Custom Maps
-require "maps"
 
 vim.cmd([[colorscheme gruvbox-material]])

@@ -39,11 +39,7 @@ SetMap("n", "<Leader>gg", ":GitGutterUndoHunk<CR>", true, false)
 -- Prettier
 SetMap("n", "<Leader>p", ":Prettier<CR>", true, false)
 
--- FZF
-SetMap("n", "<C-p>", ":Files<CR>", true, false)
-SetMap("n", "<C-s>", ":GFiles?<CR>", true, false)
-SetMap("n", "<C-f>", ":Ag<CR>", true, false)
-SetMap("n", "<Leader>gl", ":Commits<CR>", true, false)
-
--- XCLIP (Copy)
-SetMap("n", "<Leader>ff", ":!xclip -selection clipboard < %", true, false)
+-- Telescope Maps
+SetMap("n", "<C-p>", ":lua require('telescope.builtin').find_files()<CR>", true, false)
+SetMap("n", "<C-f>", ":lua require('telescope.builtin').live_grep()<CR>", true, false)
+SetMap("n", "<C-t>", ":lua require('telescope.builtin').help_tags()<CR>", true, false)
