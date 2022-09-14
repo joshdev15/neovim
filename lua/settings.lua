@@ -135,7 +135,6 @@ prettier.setup({
 })
 
 local actions = require("telescope.actions")
-
 require('telescope').setup{
   defaults = {
     mappings = {
@@ -150,4 +149,10 @@ require('telescope').setup{
   pickers = {},
   extensions = {}
 }
-        
+
+local ls = require("luasnip")
+local s = ls.snippet
+local t = ls.text_node
+ls.add_snippets('all', {
+  s('hola', {t('"Hola mundo!"')})
+})
