@@ -32,21 +32,18 @@ vim.g.NERDTreeAutoDeleteBuffer = 1
 vim.g.NERDTreeShowLineNumbers = 1
 vim.g.NERDTreeIgnore = {'node_modules', '.next', 'coverage'}
 vim.g.NERDTreeWinSize = 35
-vim.g.NERDTreeDirArrowExpandable = "🞂"
-vim.g.NERDTreeDirArrowCollapsible = "🞃"
+vim.g.NERDTreeDirArrowExpandable = "🞂" -- disable on mac
+vim.g.NERDTreeDirArrowCollapsible = "🞃" -- disable on mac
  
--- " NERDCommenter Config
+-- NERDCommenter Config
 vim.g.NERDSpaceDelims = 1  
 vim.g.NERDTrimTrailingWhitespace = 1 
 vim.g.NERDCompactSexyComs = 1
 
--- " Vue Plugin Config
+-- Vue Plugin Config
 vim.g.vue_pre_processors = {'sass', 'scss', 'javascript'}
 
--- " Everforest Config
-vim.g.everforest_background = 'hard'
-
--- " GitGutter Config
+-- GitGutter Config
 vim.g.gitgutter_sign_added = "∣" 
 vim.g.gitgutter_sign_modified = "∣"
 vim.g.gitgutter_sign_removed = "🞂"
@@ -72,6 +69,9 @@ require('lualine').setup {
       statusline = 1000,
       tabline = 1000,
       winbar = 1000,
+    },
+    symbols = {
+      modified = ' ●',
     }
   },
   sections = {
@@ -96,15 +96,18 @@ require('lualine').setup {
   extensions = {}
 }
 
+-- Tabline
 require('tabline').setup({
-    show_index = false,
+    show_index = true,
     show_modify = true,
-    modify_indicator = '+',
+    modify_indicator = '●',
     no_name = 'No name',
 })
 
+-- LSP Installer
 require("nvim-lsp-installer").setup {}
 
+-- Treesitter
 require'nvim-treesitter.configs'.setup {
   sync_install = false,
   auto_install = false,
@@ -115,6 +118,7 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 
+-- Prettier
 local prettier = require("prettier")
 prettier.setup({
   bin = 'prettier', -- or `prettierd`
@@ -130,10 +134,11 @@ prettier.setup({
     "scss",
     "typescript",
     "typescriptreact",
-    "yaml",
-  },
+    "yaml"
+  }
 })
 
+-- Telescope
 local actions = require("telescope.actions")
 require('telescope').setup{
   defaults = {
@@ -145,14 +150,5 @@ require('telescope').setup{
         [";;"] = { "<ESC>", type = "command" },
       }
     }
-  },
-  pickers = {},
-  extensions = {}
+  }
 }
-
-local ls = require("luasnip")
-local s = ls.snippet
-local t = ls.text_node
-ls.add_snippets('all', {
-  s('hola', {t('"Hola mundo!"')})
-})

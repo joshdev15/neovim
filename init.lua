@@ -38,4 +38,8 @@ require "settings"
 -- LSP Settings
 require "lsp"
 
+-- Snippets Settings
+require "snippets"
+
+-- vim.cmd([[colorscheme tokyonight-night]])
 vim.cmd([[colorscheme gruvbox-material]])
