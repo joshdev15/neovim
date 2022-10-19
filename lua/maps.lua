@@ -40,6 +40,6 @@ SetMap("n", "<Leader>gg", ":GitGutterUndoHunk<CR>", true, false)
 SetMap("n", "<Leader>p", ":Prettier<CR>", true, false)
 
 -- Telescope Maps
-SetMap("n", "<C-p>", ":lua require('telescope.builtin').find_files()<CR>", true, false)
-SetMap("n", "<C-f>", ":lua require('telescope.builtin').live_grep()<CR>", true, false)
-SetMap("n", "<C-s>", ":lua require('telescope.builtin').git_status()<CR>", true, false)
+SetMap("n", "<C-p>", ":GFiles<CR>", true, false)
+SetMap("n", "<C-f>", ":Ag<CR>", true, false)
+SetMap("n", "<C-s>", ":GFiles?<CR>", true, false)

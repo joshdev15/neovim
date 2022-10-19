@@ -13,7 +13,6 @@ return require('packer').startup({
 		-- Languages & Syntax
 		use 'sheerun/vim-polyglot'
 		use { 'fatih/vim-go', run = ':GoUpdateBinaries' }
-		use 'rust-lang/rust.vim'
 		use 'styled-components/vim-styled-components'
 		use 'ap/vim-css-color'
 		use { 'prettier/vim-prettier',  run = 'yarn install --frozen-lockfile --production' }
@@ -39,7 +38,8 @@ return require('packer').startup({
 		use 'joshdev15/nvim-tabline'
 		use 'tpope/vim-surround'
 		use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-		use { 'nvim-telescope/telescope.nvim', tag = '0.1.0' }
+		use 'junegunn/fzf' 
+		use 'junegunn/fzf.vim'
 		-- use 'github/copilot.vim'
 
 		-- Themes
