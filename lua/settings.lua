@@ -5,6 +5,7 @@ vim.g.gruvbox_material_background = 'hard'
 vim.g.gruvbox_material_foreground = 'original'
 vim.g.gruvbox_material_better_performance = 1
 vim.g.gruvbox_material_ui_contrast = "low"
+vim.g.gruvbox_material_transparent_background = 2
 
 -- Vim JSX Pretty
 vim.g.vim_jsx_pretty_colorful_config = 1
@@ -32,8 +33,8 @@ vim.g.NERDTreeAutoDeleteBuffer = 1
 vim.g.NERDTreeShowLineNumbers = 1
 vim.g.NERDTreeIgnore = {'node_modules', '.next', 'coverage'}
 vim.g.NERDTreeWinSize = 35
-vim.g.NERDTreeDirArrowExpandable = "🞂" -- disable on mac
-vim.g.NERDTreeDirArrowCollapsible = "🞃" -- disable on mac
+vim.g.NERDTreeDirArrowExpandable = "→"
+vim.g.NERDTreeDirArrowCollapsible = "↓"
  
 -- NERDCommenter Config
 vim.g.NERDSpaceDelims = 1  
@@ -46,9 +47,9 @@ vim.g.vue_pre_processors = {'sass', 'scss', 'javascript'}
 -- GitGutter Config
 vim.g.gitgutter_sign_added = "∣" 
 vim.g.gitgutter_sign_modified = "∣"
-vim.g.gitgutter_sign_removed = "🞂"
+vim.g.gitgutter_sign_removed = "▶"
 vim.g.gitgutter_sign_removed_first_line = "↟"
-vim.g.gitgutter_sign_removed_above_and_below = "♦"
+vim.g.gitgutter_sign_removed_above_and_below = "◆"
 vim.g.gitgutter_sign_modified_removed = "∣"
 
 -- Lualine
@@ -121,7 +122,7 @@ require'nvim-treesitter.configs'.setup {
 -- Prettier
 local prettier = require("prettier")
 prettier.setup({
-  bin = 'prettier', -- or `prettierd`
+  bin = 'prettier',
   filetypes = {
     "css",
     "graphql",
@@ -137,18 +138,3 @@ prettier.setup({
     "yaml"
   }
 })
-
--- Telescope
-local actions = require("telescope.actions")
-require('telescope').setup{
-  defaults = {
-    mappings = {
-      i = {
-        ["<ESC>"] = actions.close,
-        ["<C-k>"] = actions.move_selection_previous,
-        ["<C-j>"] = actions.move_selection_next,
-        [";;"] = { "<ESC>", type = "command" },
-      }
-    }
-  }
-}
