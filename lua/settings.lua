@@ -33,8 +33,8 @@ vim.g.NERDTreeAutoDeleteBuffer = 1
 vim.g.NERDTreeShowLineNumbers = 1
 vim.g.NERDTreeIgnore = {'node_modules', '.next', 'coverage'}
 vim.g.NERDTreeWinSize = 35
-vim.g.NERDTreeDirArrowExpandable = "→"
-vim.g.NERDTreeDirArrowCollapsible = "↓"
+vim.g.NERDTreeDirArrowExpandable = "→" -- disable on mac
+vim.g.NERDTreeDirArrowCollapsible = "↓" -- disable on mac
  
 -- NERDCommenter Config
 vim.g.NERDSpaceDelims = 1  
@@ -122,7 +122,7 @@ require'nvim-treesitter.configs'.setup {
 -- Prettier
 local prettier = require("prettier")
 prettier.setup({
-  bin = 'prettier',
+  bin = 'prettier', -- or `prettierd`
   filetypes = {
     "css",
     "graphql",

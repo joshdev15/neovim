@@ -22,9 +22,9 @@ return require('packer').startup({
 		use 'nvim-lua/plenary.nvim'
     use 'williamboman/nvim-lsp-installer'
 		use 'hrsh7th/nvim-cmp'
-  	use 'hrsh7th/cmp-nvim-lsp'
-  	use 'saadparwaiz1/cmp_luasnip'
-  	use 'L3MON4D3/LuaSnip'
+		use 'hrsh7th/cmp-nvim-lsp'
+		use 'saadparwaiz1/cmp_luasnip'
+		use 'L3MON4D3/LuaSnip'
 		use 'jose-elias-alvarez/null-ls.nvim'
 		use 'MunifTanjim/prettier.nvim'
 
@@ -45,6 +45,7 @@ return require('packer').startup({
 		-- Themes
 		use 'sainnhe/gruvbox-material'
 		use 'folke/tokyonight.nvim'
+		use 'doums/darcula'
 
 		if packer_bootstrap then
     	require('packer').sync()
