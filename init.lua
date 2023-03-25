@@ -9,8 +9,10 @@ local set = vim.opt
 o.t_Co = "256k" 
 
 -- Optional Settings
-set.number = true
+set.sw = 2
 set.rnu = true
+set.number = true
+set.mouse = ''
 set.numberwidth = 2
 set.clipboard = "unnamedplus" 
 set.swapfile = false
@@ -18,10 +20,7 @@ set.backup = false
 set.background = "dark"
 set.showmatch = true
 set.showmode = false
-set.sw = 2
 set.hlsearch = true
-set.linebreak = true
-set.incsearch = true
 set.termguicolors = true
 set.scrolloff = 10
 set.signcolumn = "yes"
@@ -39,7 +38,8 @@ require "settings"
 require "lsp"
 
 -- Snippets Settings
-require "snippets"
+-- require "snippets"
 
 -- vim.cmd([[colorscheme tokyonight-night]])
 vim.cmd([[colorscheme gruvbox-material]])
+-- vim.cmd([[colorscheme darcula]])

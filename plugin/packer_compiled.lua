@@ -89,6 +89,11 @@ _G.packer_plugins = {
     path = "/Users/joshdev/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  darcula = {
+    loaded = true,
+    path = "/Users/joshdev/.local/share/nvim/site/pack/packer/start/darcula",
+    url = "https://github.com/doums/darcula"
+  },
   ["editorconfig-vim"] = {
     loaded = true,
     path = "/Users/joshdev/.local/share/nvim/site/pack/packer/start/editorconfig-vim",
