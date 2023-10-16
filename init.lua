@@ -28,7 +28,7 @@ set.ignorecase = true
 set.updatetime = 300
 set.splitright = true
 
--- Custom Maps
+-- Custom KeyMaps
 require "maps"
 
 -- Plugins Settings
@@ -37,9 +37,5 @@ require "settings"
 -- LSP Settings
 require "lsp"
 
--- Snippets Settings
--- require "snippets"
-
--- vim.cmd([[colorscheme tokyonight-night]])
+-- Theme
 vim.cmd([[colorscheme gruvbox-material]])
--- vim.cmd([[colorscheme darcula]])

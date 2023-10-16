@@ -12,18 +12,21 @@ return require('packer').startup({
 
 		-- Languages & Syntax
 		use 'sheerun/vim-polyglot'
-		use { 'fatih/vim-go', run = ':GoUpdateBinaries' }
 		use 'styled-components/vim-styled-components'
 		use 'ap/vim-css-color'
+		use 'fatih/vim-go'
 		use { 'prettier/vim-prettier',  run = 'yarn install --frozen-lockfile --production' }
 
 		-- LSP
-		use 'neovim/nvim-lspconfig'
-		use 'nvim-lua/plenary.nvim'
-    use 'williamboman/nvim-lsp-installer'
+		use {
+			'neovim/nvim-lspconfig',
+    	'williamboman/mason.nvim',
+			'williamboman/mason-lspconfig.nvim',
+    	run = ":MasonUpdate"
+		}
 		use 'hrsh7th/nvim-cmp'
 		use 'hrsh7th/cmp-nvim-lsp'
-		use 'saadparwaiz1/cmp_luasnip'
+		use 'nvim-lua/plenary.nvim'
 		use 'L3MON4D3/LuaSnip'
 		use 'jose-elias-alvarez/null-ls.nvim'
 		use 'MunifTanjim/prettier.nvim'
@@ -40,12 +43,14 @@ return require('packer').startup({
 		use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 		use 'junegunn/fzf' 
 		use 'junegunn/fzf.vim'
-		-- use 'github/copilot.vim'
 
 		-- Themes
 		use 'sainnhe/gruvbox-material'
-		use 'folke/tokyonight.nvim'
-		use 'doums/darcula'
+		
+		-- Disabled
+		-- use 'sainnhe/everforest'
+		-- use 'github/copilot.vim'
+		-- use 'doums/darcula'
 
 		if packer_bootstrap then
     	require('packer').sync()
