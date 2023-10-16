@@ -14,3 +14,5 @@ endfunction
 
 " OpenExplorer (NerdTree) Map
 :noremap <C-n> :call OpenExplorer()<cr>
+
+autocmd BufEnter * :syn sync maxlines=3000
