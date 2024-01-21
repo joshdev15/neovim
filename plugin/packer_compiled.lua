@@ -144,11 +144,6 @@ _G.packer_plugins = {
     path = "/Users/joshdev/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
-  ["nvim-tabline"] = {
-    loaded = true,
-    path = "/Users/joshdev/.local/share/nvim/site/pack/packer/start/nvim-tabline",
-    url = "https://github.com/joshdev15/nvim-tabline"
-  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/Users/joshdev/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
@@ -168,6 +163,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/joshdev/.local/share/nvim/site/pack/packer/start/prettier.nvim",
     url = "https://github.com/MunifTanjim/prettier.nvim"
+  },
+  ["tabby.nvim"] = {
+    loaded = true,
+    path = "/Users/joshdev/.local/share/nvim/site/pack/packer/start/tabby.nvim",
+    url = "https://github.com/nanozuki/tabby.nvim"
   },
   ["vim-css-color"] = {
     loaded = true,
