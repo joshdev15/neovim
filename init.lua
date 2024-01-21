@@ -1,41 +1,43 @@
+--------------------------
 -- NEOVIM CONFIGURATION --
+--------------------------
 
--- Custom Settings
-local o = vim.o
-local bo = vim.bo
-local set = vim.opt
+-- The plugins are available in the archive
+-- [ROOT]/plugins/initial.lua
 
 -- Global Options
-o.t_Co = "256k" 
+vim.o.t_Co = "256k" 
 
 -- Optional Settings
-set.sw = 2
-set.rnu = true
-set.number = true
-set.mouse = ''
-set.numberwidth = 2
-set.clipboard = "unnamedplus" 
-set.swapfile = false
-set.backup = false
-set.background = "dark"
-set.showmatch = true
-set.showmode = false
-set.hlsearch = true
-set.termguicolors = true
-set.scrolloff = 10
-set.signcolumn = "yes"
-set.ignorecase = true
-set.updatetime = 300
-set.splitright = true
+vim.opt.sw = 2
+vim.opt.rnu = true
+vim.opt.number = true
+vim.opt.mouse = ''
+vim.opt.numberwidth = 2
+vim.opt.clipboard = "unnamedplus" 
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.background = "dark"
+vim.opt.showmatch = true
+vim.opt.showmode = false
+vim.opt.hlsearch = true
+vim.opt.termguicolors = true
+vim.opt.scrolloff = 10
+vim.opt.signcolumn = "yes"
+vim.opt.ignorecase = true
+vim.opt.updatetime = 300
+vim.opt.splitright = true
+vim.opt.foldenable = true
+vim.opt.foldlevelstart = 99
 
 -- Custom KeyMaps
-require "maps"
+require("maps") 
 
 -- Plugins Settings
-require "settings"
+require("settings") 
 
 -- LSP Settings
-require "lsp"
+require("lsp") 
 
 -- Theme
 vim.cmd([[colorscheme gruvbox-material]])

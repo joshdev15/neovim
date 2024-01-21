@@ -22,12 +22,12 @@ SetMap("n", "<C-k>", "<C-w>k", true, false)
 SetMap("n", "<C-l>", "<C-w>l", true, false)
 SetMap("n", "<C-w>", "<C-w>=", true, false)
 
--- English Escape
+-- English Keyboard Escape
 SetMap("v", ";;", "<ESC>", true, false)
 SetMap("i", ";;", "<ESC>", true, false)
 SetMap("x", ";;", "<ESC>", true, false)
 
--- Spanish Escape
+-- Spanish Keyboard Escape
 SetMap("v", "ññ", "<ESC>", true, false)
 SetMap("i", "ññ", "<ESC>", true, false)
 SetMap("x", "ññ", "<ESC>", true, false)
@@ -39,7 +39,7 @@ SetMap("n", "<Leader>gg", ":GitGutterUndoHunk<CR>", true, false)
 -- Prettier
 SetMap("n", "<Leader>p", ":Prettier<CR>", true, false)
 
--- Telescope Maps
+-- FZF Maps
 SetMap("n", "<C-p>", ":GFiles<CR>", true, false)
 SetMap("n", "<C-f>", ":Ag<CR>", true, false)
 SetMap("n", "<C-s>", ":GFiles?<CR>", true, false)

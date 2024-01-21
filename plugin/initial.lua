@@ -16,6 +16,7 @@ return require('packer').startup({
 		use 'ap/vim-css-color'
 		use 'fatih/vim-go'
 		use { 'prettier/vim-prettier',  run = 'yarn install --frozen-lockfile --production' }
+		use 'dart-lang/dart-vim-plugin'
 
 		-- LSP
 		use {
@@ -27,9 +28,9 @@ return require('packer').startup({
 		use 'hrsh7th/nvim-cmp'
 		use 'hrsh7th/cmp-nvim-lsp'
 		use 'nvim-lua/plenary.nvim'
-		use 'L3MON4D3/LuaSnip'
 		use 'jose-elias-alvarez/null-ls.nvim'
 		use 'MunifTanjim/prettier.nvim'
+		use 'L3MON4D3/LuaSnip'
 
 		-- Features
 		use 'preservim/nerdtree'
@@ -38,19 +39,14 @@ return require('packer').startup({
 		use 'airblade/vim-gitgutter'
 		use 'editorconfig/editorconfig-vim'
 		use 'nvim-lualine/lualine.nvim'
-		use 'joshdev15/nvim-tabline'
 		use 'tpope/vim-surround'
 		use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 		use 'junegunn/fzf' 
 		use 'junegunn/fzf.vim'
+		use 'nanozuki/tabby.nvim'
 
 		-- Themes
 		use 'sainnhe/gruvbox-material'
-		
-		-- Disabled
-		-- use 'sainnhe/everforest'
-		-- use 'github/copilot.vim'
-		-- use 'doums/darcula'
 
 		if packer_bootstrap then
     	require('packer').sync()

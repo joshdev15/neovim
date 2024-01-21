@@ -36,6 +36,8 @@ vim.g.go_highlight_extra_types = 1
 vim.g.go_highlight_build_constraints = 1
 vim.g.go_def_mode = 'gopls'
 vim.g.go_info_mode = 'gopls'
+vim.g.go_doc_popup_window = 1
+vim.g.go_def_reuse_buffer = 0
 
 -- NERDTree Config
 vim.g.NERDTreeShowHidden = 0
@@ -64,8 +66,11 @@ vim.g.gitgutter_sign_removed_first_line = "𝟷"
 vim.g.gitgutter_sign_removed_above_and_below = "↕"
 vim.g.gitgutter_sign_modified_removed = "∣"
 
+-- Dart Vim
+vim.g.dart_format_on_save = true
+
 -- Lualine
-require('lualine').setup {
+require('lualine').setup({
   options = {
     icons_enabled = false,
     theme = 'auto',
@@ -107,33 +112,58 @@ require('lualine').setup {
   winbar = {},
   inactive_winbar = {},
   extensions = {}
-}
-
--- Tabline
-require('tabline').setup({
-    show_index = true,
-    show_modify = true,
-    modify_indicator = '✻',
-    no_name = 'No name',
-    show_index_filename = false,
-    show_styles_filename = false,
 })
 
--- LSP Mason
-require("mason").setup()
-require("mason-lspconfig").setup()
+-- TABBY --
+vim.o.showtabline = 2
+
+require('tabby.tabline').set(function(line)
+  return {
+    {
+      { '  </>  ', hl = 'TabLine' },
+      line.sep('', 'TabLine', 'TabLineFill'),
+    },
+    line.tabs().foreach(function(tab)
+      local hl = tab.is_current() and 'TabLineSel' or 'TabLine'
+      return {
+        line.sep(' ', hl, 'TabLineFill'),
+        tab.is_current() and '' or '',
+        -- tab.number(),
+        tab.name(),
+        -- tab.close_btn(''),
+        line.sep('', hl, 'TabLineFill'),
+        hl = hl,
+        margin = ' ',
+      }
+    end),
+    line.spacer(),
+    -- line.wins_in_tab(line.api.get_current_tab()).foreach(function(win)
+      -- return {
+        -- line.sep('', 'TabLine', 'TabLineFill'),
+        -- win.is_current() and '' or '',
+        -- win.buf_name(),
+        -- line.sep('', 'TabLine', 'TabLineFill'),
+        -- hl = 'TabLine',
+        -- margin = ' ',
+      -- }
+    -- end),
+    {
+      line.sep('', 'TabLine', 'TabLineFill'),
+      { '', hl = 'TabLine' },
+    },
+    hl = 'TabLineFill',
+  }
+end)
 
 -- Treesitter
-require'nvim-treesitter.configs'.setup {
+require('nvim-treesitter.configs').setup({
   sync_install = false,
   auto_install = false,
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false,
   },
-}
 
-require'nvim-treesitter.configs'.setup {
   ensure_installed = "typescript",
   highlight = {
     enable = true
@@ -145,7 +175,7 @@ require'nvim-treesitter.configs'.setup {
     enable = true
   },
   rainbow = {
-    enable = true
+    enable = false
   },
   textobjects = {
     select = {
@@ -185,7 +215,7 @@ require'nvim-treesitter.configs'.setup {
   context_commentstring = {
     enable = true
   }
-}
+})
 
 -- Prettier
 local prettier = require("prettier")
@@ -195,6 +225,7 @@ prettier.setup({
     "css",
     "graphql",
     "html",
+    "mjs",
     "javascript",
     "javascriptreact",
     "json",
