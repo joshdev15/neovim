@@ -1,9 +1,6 @@
 # Neovim
 
-**Updated to**
-NVIM v0.10.0
-Build type: Release
-LuaJIT 2.1.1713484068
+**Updated to NVIM v0.10.0**
 
 ## My Neovim settings
 
@@ -102,8 +99,9 @@ example:
 :TSInstall javascript
 ```
 
-You can see the available languages using the command: TSInstallInfo, I
-recommend: 'tsx', 'javascript', 'typescript', 'json5', 'css', 'html', 'go', 'rust', 'dart'
+You can see the available languages using the command: TSInstallInfo.
+
+I recommend: 'tsx', 'javascript', 'typescript', 'json5', 'css', 'html', 'go', 'rust', 'dart'
 and the other one or others you want.
 
 Enjoy!
