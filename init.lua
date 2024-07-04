@@ -2,13 +2,8 @@
 -- NEOVIM CONFIGURATION --
 --------------------------
 
--- The plugins are available in the archive
--- [ROOT]/plugins/initial.lua
-
--- Global Options
-vim.o.t_Co = "256k" 
-
 -- Optional Settings
+vim.o.syntax = "off"
 vim.opt.sw = 2
 vim.opt.rnu = true
 vim.opt.number = true
@@ -41,3 +36,7 @@ require("lsp")
 
 -- Theme
 vim.cmd([[colorscheme gruvbox-material]])
+
+--------------------------
+-- The plugins are available in the archive
+-- [ROOT]/plugins/initial.lua

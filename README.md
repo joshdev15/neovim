@@ -1,17 +1,23 @@
 # Neovim
 
-## My custom neovim settings
+**Updated to**
+NVIM v0.10.0
+Build type: Release
+LuaJIT 2.1.1713484068
 
-**WARNING!: This configuration is in the development/experimental phase,**
+## My Neovim settings
 
 This configuration uses Lua as its main language.
 
-The Lua programming language is supported by Neovim since version 0.5.0, so it
+The Lua programming language is supported by Neovim since version **0.5.0**, so it
 is recommended that you upgrade to a higher version than the one mentioned
 above.
 
-This configuration is mainly set up to work on Linux, take your precautions if
-you will use it on a different OS.
+Please use the most recent version of Neovim.
+This configuration is tested on Neovim v0.10.0.
+
+This configuration is mainly set up to work on Linux or MacOS,
+take your precautions if you will use it on a different OS.
 
 It is also necessary to have the following programs installed and configured;
 
@@ -60,7 +66,7 @@ with the command option of ":".
 The previous command will install the libraries and plugins so that the editor
 is ready to use.
 
-### LSP
+### LSP and Mason
 
 Once the installation is complete, you can run the following command:
 
@@ -68,14 +74,21 @@ Once the installation is complete, you can run the following command:
 :Mason
 ```
 
-Which will allow you to install: LSP, Linterns and Formatters of many languages
-for your editor through a fairly comfortable interface. Which will make its use
-much easier.
+Which will allow you to install: LSP, Linterns and Formatters
+of many languages for your editor through a fairly comfortable
+interface. Which will make its use much easier.
 
 ### Treesitter
 
-Then I highly recommend installing Treesitter, which helps improve syntax
-highlighting of many languages
+**Important**
+
+If you are running MacOS with Apple Silicon processors
+(M1, M2 or M3), you need to install the tree-packages from
+a terminal that is not running Rosetta, because it will
+generate errors.
+
+Then I highly recommend installing Treesitter, which helps
+improve syntax highlighting of many languages
 
 You can do it with the following command:
 
@@ -90,5 +103,7 @@ example:
 ```
 
 You can see the available languages using the command: TSInstallInfo, I
-recommend: 'javascript', 'typescript', 'json5' and the other one or others you
-want
+recommend: 'tsx', 'javascript', 'typescript', 'json5', 'css', 'html', 'go', 'rust', 'dart'
+and the other one or others you want.
+
+Enjoy!

@@ -12,15 +12,8 @@ vim.g.gruvbox_material_dim_inactive_windows = 1
 vim.g.gruvbox_material_disable_italic_comment = 1
 vim.g.gruvbox_material_better_performance = 1
 
--- Everforest Theme
-vim.g.everforest_background = 'hard'
-vim.g.gruvbox_material_foreground = 'mix'
-vim.g.everforest_better_performance = 1
-vim.g.everforest_transparent_background = 2
-vim.g.everforest_ui_contrast = 'low'
-
 -- Vim JSX Pretty
-vim.g.vim_jsx_pretty_colorful_config = 1
+vim.g.vim_jsx_pretty_colorful_config = 0
 
 -- Vim-Vue
 vim.g.vim_vue_plugin_load_full_syntax = 1
@@ -96,7 +89,7 @@ require('lualine').setup({
     lualine_a = {'mode'},
     lualine_b = {'branch','diff'},
     lualine_c = {{'filename', path = 1}},
-    lualine_x = {},
+    lualine_x = {'filetype'},
     lualine_y = {'location'},
     lualine_z = {'progress'}
   },
@@ -126,7 +119,7 @@ require('tabby.tabline').set(function(line)
     line.tabs().foreach(function(tab)
       local hl = tab.is_current() and 'TabLineSel' or 'TabLine'
       return {
-        line.sep(' ', hl, 'TabLineFill'),
+        line.sep('', hl, 'TabLineFill'),
         tab.is_current() and '' or '',
         -- tab.number(),
         tab.name(),
@@ -155,66 +148,28 @@ require('tabby.tabline').set(function(line)
   }
 end)
 
--- Treesitter
+--Treesitter
 require('nvim-treesitter.configs').setup({
-  sync_install = false,
-  auto_install = false,
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false,
   },
-
-  ensure_installed = "typescript",
-  highlight = {
-    enable = true
-  },
-  indent = {
-    enable = true
-  },
-  autotag = {
-    enable = true
-  },
   rainbow = {
-    enable = false
-  },
-  textobjects = {
-    select = {
-      enable = true,
-      lookahead = true,
-      keymaps = {
-        ["af"] = "@function.outer",
-        ["if"] = "@function.inner",
-        ["ac"] = "@class.outer",
-        ["ic"] = "@class.inner",
-      },
-    },
-  },
-  playground = {
     enable = true,
-    disable = {},
-    updatetime = 25,
-    persist_queries = false,
-    keybindings = {
-      toggle_query_editor = 'o',
-      toggle_hl_groups = 'i',
-      toggle_injected_languages = 't',
-      toggle_anonymous_nodes = 'a',
-      toggle_language_display = 'I',
-      focus_language = 'f',
-      unfocus_language = 'F',
-      update = 'R',
-      goto_node = '<cr>',
-      show_help = '?',
-    },
+    extended_mode = true,
+    max_file_lines = 5000,
   },
-  query_linter = {
-    enable = true,
-    use_virtual_text = true,
-    lint_events = {"BufWrite", "CursorHold"},
-  },
-  context_commentstring = {
-    enable = true
-  }
+})
+
+local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+parser_config.tsx.filetype_to_parsername = { "javascript", "typescript.tsx", "typescriptreact" }
+
+vim.api.nvim_create_autocmd({'BufEnter','BufAdd','BufNew','BufNewFile','BufWinEnter'}, {
+  group = vim.api.nvim_create_augroup('TS_FOLD_WORKAROUND', {}),
+  callback = function()
+    vim.opt.foldmethod     = 'expr'
+    vim.opt.foldexpr       = 'nvim_treesitter#foldexpr()'
+  end
 })
 
 -- Prettier
@@ -237,3 +192,4 @@ prettier.setup({
     "yaml"
   }
 })
+

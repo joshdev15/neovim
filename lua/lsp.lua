@@ -63,8 +63,11 @@ require('lspconfig.ui.windows').default_options.border = 'single'
 
 -- LSP: Local Go Server
 lspconfig.gopls.setup({})
+lspconfig.golangci_lint_ls.setup({})
 lspconfig.dartls.setup({
-  enableSdkFormatter = true
+  enableSdkFormatter = true,
+  on_attach = on_attach,
+	capabilities = capabilities,
 })
 
 -- LSP Mason
