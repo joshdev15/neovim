@@ -32,10 +32,10 @@ cmp.setup {
     end,
   },
   mapping = cmp.mapping.preset.insert({
-    ["<C-k>"] = cmp.mapping.select_prev_item(),
-		["<C-j>"] = cmp.mapping.select_next_item(),
-		["<C-S-k>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
-		["<C-S-j>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
+    ['<C-k>'] = cmp.mapping.select_prev_item(),
+    ['<C-j>'] = cmp.mapping.select_next_item(),
+    ['<C-S-k>'] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
+    ['<C-S-j>'] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<ESC>'] = cmp.mapping.abort(),
     ['<CR>'] = cmp.mapping.confirm {
