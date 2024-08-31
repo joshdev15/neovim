@@ -9,7 +9,7 @@ return require('packer').startup({
   function(use)
     -- Package Manager
     use 'wbthomason/packer.nvim'
-
+    
     -- Languages & Syntax
     use 'sheerun/vim-polyglot'
     use 'styled-components/vim-styled-components'
@@ -17,8 +17,8 @@ return require('packer').startup({
     use 'fatih/vim-go'
     use { 'prettier/vim-prettier',  run = 'yarn install --frozen-lockfile --production' }
     use 'dart-lang/dart-vim-plugin'
-    use 'p00f/nvim-ts-rainbow'
-
+    use 'p00f/nvim-ts-rainbow' 
+    
     -- LSP
     use {
       'neovim/nvim-lspconfig',
@@ -32,7 +32,7 @@ return require('packer').startup({
     use 'jose-elias-alvarez/null-ls.nvim'
     use 'MunifTanjim/prettier.nvim'
     use 'L3MON4D3/LuaSnip'
-
+    
     -- Features
     use 'preservim/nerdtree'
     use 'scrooloose/nerdcommenter'
@@ -41,10 +41,6 @@ return require('packer').startup({
     use 'editorconfig/editorconfig-vim'
     use 'nvim-lualine/lualine.nvim'
     use 'tpope/vim-surround'
-    use 'junegunn/fzf'
-    use 'junegunn/fzf.vim'
-    use 'nanozuki/tabby.nvim'
-    -- use 'github/copilot.vim'
     use {
       'nvim-treesitter/nvim-treesitter',
       run = function()
@@ -54,9 +50,13 @@ return require('packer').startup({
         ts_update()
       end,
     }
-
+    use 'junegunn/fzf' 
+    use 'junegunn/fzf.vim'
+    use 'nanozuki/tabby.nvim'
+    use 'github/copilot.vim'
+    
     -- Themes
-    use 'sainnhe/gruvbox-material'
+    use 'catppuccin/nvim'
 
     if packer_bootstrap then
       require('packer').sync()

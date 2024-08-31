@@ -6,20 +6,30 @@ function SetMap(mode, key, command, remap, silent)
   vim.api.nvim_set_keymap(mode, key, command, {noremap = remap, silent = silent})
 end
 
+local pattern1 = "tsx"
+local pattern2 = "ts"
+local pattern3 = "jsx"
+local pattern4 = "js"
+local pattern5 = "css"
+local pattern6 = "scss"
 
 vim.keymap.set("n", "<Leader>w", function()
   local dir = vim.fn.expand("%:p:f")
-  local pattern1 = "tsx"
-  local pattern2 = "ts"
-  local pattern3 = "jsx"
-  local pattern4 = "js"
-  local pattern5 = "css"
-  local pattern6 = "scss"
   if dir:find(pattern1) or dir:find(pattern2) or dir:find(pattern3) or dir:find(pattern4) or dir:find(pattern5) or dir:find(pattern6) then
     vim.cmd(":Prettier")
   end
-  vim.cmd("w") -- save buffer
-  vim.print(dir)
+  vim.cmd("w")
+  vim.print("File Saved")
+end, {})
+
+
+vim.keymap.set("n", "<Leader>W", function()
+  local dir = vim.fn.expand("%:p:f")
+  if dir:find(pattern1) or dir:find(pattern2) or dir:find(pattern3) or dir:find(pattern4) or dir:find(pattern5) or dir:find(pattern6) then
+    vim.cmd(":Prettier")
+  end
+  vim.cmd("w!")
+  vim.print("File Saved")
 end, {})
 
 

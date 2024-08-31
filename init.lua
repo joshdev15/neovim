@@ -28,14 +28,17 @@ vim.opt.foldlevelstart = 99
 -- Custom KeyMaps
 require("maps") 
 
--- Plugins Settings
+-- Vim Settings
 require("settings") 
+
+-- Plugins Settings
+require("plugins")
 
 -- LSP Settings
 require("lsp") 
 
 -- Theme
-vim.cmd([[colorscheme gruvbox-material]])
+vim.cmd.colorscheme "catppuccin"
 
 --------------------------
 -- The plugins are available in the archive
