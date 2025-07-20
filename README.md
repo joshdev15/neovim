@@ -1,6 +1,6 @@
 # Neovim
 
-**Updated to NVIM v0.10.0**
+**Updated to NVIM v0.11.1**
 
 ## My Neovim settings
 
