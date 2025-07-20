@@ -12,7 +12,6 @@ vim.opt.numberwidth = 2
 vim.opt.clipboard = "unnamedplus" 
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.background = "dark"
 vim.opt.showmatch = true
 vim.opt.showmode = false
 vim.opt.hlsearch = true
@@ -35,7 +34,19 @@ require("settings")
 require("plugins")
 
 -- LSP Settings
-require("lsp") 
+require("lsp")
+
+-- Check mac dark mode
+-- Disable this if you are not using MacOS
+local result = vim.fn.system("defaults read -g AppleInterfaceStyle")
+local final = "dark"
+if result ~= "Dark\n" then
+	final = "light" 
+else
+	final = "dark"
+end
+
+vim.opt.background = final
 
 -- Theme
 vim.cmd.colorscheme "catppuccin"

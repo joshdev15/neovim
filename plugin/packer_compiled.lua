@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/Users/joshdev/.cache/nvim/packer_hererocks/2.1.1713484068/share/lua/5.1/?.lua;/Users/joshdev/.cache/nvim/packer_hererocks/2.1.1713484068/share/lua/5.1/?/init.lua;/Users/joshdev/.cache/nvim/packer_hererocks/2.1.1713484068/lib/luarocks/rocks-5.1/?.lua;/Users/joshdev/.cache/nvim/packer_hererocks/2.1.1713484068/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/Users/joshdev/.cache/nvim/packer_hererocks/2.1.1713484068/lib/lua/5.1/?.so"
+local package_path_str = "/Users/joshdev/.cache/nvim/packer_hererocks/2.1.1741730670/share/lua/5.1/?.lua;/Users/joshdev/.cache/nvim/packer_hererocks/2.1.1741730670/share/lua/5.1/?/init.lua;/Users/joshdev/.cache/nvim/packer_hererocks/2.1.1741730670/lib/luarocks/rocks-5.1/?.lua;/Users/joshdev/.cache/nvim/packer_hererocks/2.1.1741730670/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/Users/joshdev/.cache/nvim/packer_hererocks/2.1.1741730670/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -84,16 +84,6 @@ _G.packer_plugins = {
     path = "/Users/joshdev/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
-  ["copilot.vim"] = {
-    loaded = true,
-    path = "/Users/joshdev/.local/share/nvim/site/pack/packer/start/copilot.vim",
-    url = "https://github.com/github/copilot.vim"
-  },
-  ["dart-vim-plugin"] = {
-    loaded = true,
-    path = "/Users/joshdev/.local/share/nvim/site/pack/packer/start/dart-vim-plugin",
-    url = "https://github.com/dart-lang/dart-vim-plugin"
-  },
   ["editorconfig-vim"] = {
     loaded = true,
     path = "/Users/joshdev/.local/share/nvim/site/pack/packer/start/editorconfig-vim",
@@ -108,6 +98,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/joshdev/.local/share/nvim/site/pack/packer/start/fzf.vim",
     url = "https://github.com/junegunn/fzf.vim"
+  },
+  ["lualine-diagnostic-message"] = {
+    loaded = true,
+    path = "/Users/joshdev/.local/share/nvim/site/pack/packer/start/lualine-diagnostic-message",
+    url = "https://github.com/Isrothy/lualine-diagnostic-message"
   },
   ["lualine.nvim"] = {
     loaded = true,
@@ -134,10 +129,10 @@ _G.packer_plugins = {
     path = "/Users/joshdev/.local/share/nvim/site/pack/packer/start/nerdtree",
     url = "https://github.com/preservim/nerdtree"
   },
-  ["null-ls.nvim"] = {
+  ["none-ls.nvim"] = {
     loaded = true,
-    path = "/Users/joshdev/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
-    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
+    path = "/Users/joshdev/.local/share/nvim/site/pack/packer/start/none-ls.nvim",
+    url = "https://github.com/nvimtools/none-ls.nvim"
   },
   nvim = {
     loaded = true,
@@ -158,11 +153,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/joshdev/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
-  },
-  ["nvim-ts-rainbow"] = {
-    loaded = true,
-    path = "/Users/joshdev/.local/share/nvim/site/pack/packer/start/nvim-ts-rainbow",
-    url = "https://github.com/p00f/nvim-ts-rainbow"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -213,11 +203,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/joshdev/.local/share/nvim/site/pack/packer/start/vim-prettier",
     url = "https://github.com/prettier/vim-prettier"
-  },
-  ["vim-styled-components"] = {
-    loaded = true,
-    path = "/Users/joshdev/.local/share/nvim/site/pack/packer/start/vim-styled-components",
-    url = "https://github.com/styled-components/vim-styled-components"
   },
   ["vim-surround"] = {
     loaded = true,

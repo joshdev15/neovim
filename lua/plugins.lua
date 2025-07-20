@@ -59,8 +59,30 @@ require('lualine').setup({
   sections = {
     lualine_a = {'mode'},
     lualine_b = {'branch','diff'},
-    lualine_c = {{'filename', path = 1}},
-    lualine_x = {'filetype'},
+    lualine_c = {
+      -- "diagnostic-message",
+            --- Or
+      {
+        "diagnostic-message",
+        colors = {
+            error = "#BF616A",
+            warn = "#EBCB8B",
+            info = "#A3BE8C",
+            hint = "#88C0D0",
+        },
+        icons = {
+            error = "✖",
+            warn = "↦",
+            info = "ｉ",
+            hint = "»",
+        },
+        line_separator = ". ",
+        first_line_only = false,
+      },
+    },
+    -- lualine_c = {{'filename', path = 1}},
+    lualine_x = {{'filename', path = 1}},
+    -- lualine_x = {'filetype'},
     lualine_y = {'location'},
     lualine_z = {'progress'}
   },
@@ -126,8 +148,9 @@ vim.api.nvim_create_autocmd({'BufEnter','BufAdd','BufNew','BufNewFile','BufWinEn
 ----------------------
 -- Catppuccin Theme --
 ----------------------
+
 require("catppuccin").setup({
-    flavour = "mocha", -- latte, frappe, macchiato, mocha
+    -- flavour = final, -- latte, frappe, macchiato, mocha
     background = { -- :h background
         light = "latte",
         dark = "mocha",
@@ -178,4 +201,8 @@ require("catppuccin").setup({
             indentscope_color = "",
         },
     },
+})
+
+vim.diagnostic.config({
+  virtual_text = false,
 })

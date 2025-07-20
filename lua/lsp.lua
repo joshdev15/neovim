@@ -14,7 +14,7 @@ end
 
 -- Adding servers to lspconfig
 local lspconfig = require('lspconfig')
-local servers = { 'tsserver', 'cssls', 'html', 'jsonls' }
+local servers = { 'ts_ls', 'cssls', 'html', 'jsonls' }
 for _, server in ipairs(servers) do
   lspconfig[server].setup({
     on_attach = on_attach,
@@ -33,9 +33,9 @@ cmp.setup {
   },
   mapping = cmp.mapping.preset.insert({
     ['<C-k>'] = cmp.mapping.select_prev_item(),
-    ['<C-j>'] = cmp.mapping.select_next_item(),
-    ['<C-S-k>'] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
-    ['<C-S-j>'] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
+		['<C-j>'] = cmp.mapping.select_next_item(),
+		['<C-S-k>'] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
+		['<C-S-j>'] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<ESC>'] = cmp.mapping.abort(),
     ['<CR>'] = cmp.mapping.confirm {
@@ -64,12 +64,10 @@ require('lspconfig.ui.windows').default_options.border = 'single'
 -- LSP: Local Go Server
 lspconfig.gopls.setup({})
 lspconfig.golangci_lint_ls.setup({})
-lspconfig.dartls.setup({
-  enableSdkFormatter = true,
-  on_attach = on_attach,
-	capabilities = capabilities,
-})
+lspconfig.kotlin_language_server.setup({})
 
 -- LSP Mason
 require("mason").setup()
 require("mason-lspconfig").setup()
+
+
