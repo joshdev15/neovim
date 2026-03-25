@@ -24,8 +24,9 @@ vim.opt.splitright = true
 vim.opt.foldenable = true
 vim.opt.foldlevelstart = 99
 
--- Custom KeyMaps
-require("maps") 
+
+-- LSP Settings
+require("lsp")
 
 -- Vim Settings
 require("settings") 
@@ -33,8 +34,9 @@ require("settings")
 -- Plugins Settings
 require("plugins")
 
--- LSP Settings
-require("lsp")
+-- Custom KeyMaps
+require("maps") 
+
 
 -- Check mac dark mode
 -- Disable this if you are not using MacOS
@@ -49,8 +51,9 @@ end
 vim.opt.background = final
 
 -- Theme
-vim.cmd.colorscheme "catppuccin"
+vim.cmd.colorscheme "gruvbox-material"
 
 --------------------------
 -- The plugins are available in the archive
 -- [ROOT]/plugins/initial.lua
+

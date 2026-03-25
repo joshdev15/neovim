@@ -1,5 +1,10 @@
 -- Plugins Settings --
 
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "*",
+  command = "syn sync maxlines=1000",
+})
+
 ----------------------------------
 -- TABBY -- (Linea de pestañas) --
 ----------------------------------
@@ -48,9 +53,9 @@ require('lualine').setup({
     always_divide_middle = false,
     globalstatus = false,
     refresh = {
-      statusline = 1000,
-      tabline = 1000,
-      winbar = 1000,
+      statusline = 500,
+      tabline = 500,
+      winbar = 500,
     },
     symbols = {
       modified = '✻',
@@ -59,27 +64,7 @@ require('lualine').setup({
   sections = {
     lualine_a = {'mode'},
     lualine_b = {'branch','diff'},
-    lualine_c = {
-      -- "diagnostic-message",
-            --- Or
-      {
-        "diagnostic-message",
-        colors = {
-            error = "#BF616A",
-            warn = "#EBCB8B",
-            info = "#A3BE8C",
-            hint = "#88C0D0",
-        },
-        icons = {
-            error = "✖",
-            warn = "↦",
-            info = "ｉ",
-            hint = "»",
-        },
-        line_separator = ". ",
-        first_line_only = false,
-      },
-    },
+    lualine_c = {},
     -- lualine_c = {{'filename', path = 1}},
     lualine_x = {{'filename', path = 1}},
     -- lualine_x = {'filetype'},
@@ -108,13 +93,11 @@ prettier.setup({
   bin = 'prettier', -- or `prettierd`
   filetypes = {
     "css",
-    "graphql",
     "html",
     "mjs",
     "javascript",
     "javascriptreact",
     "json",
-    "less",
     "markdown",
     "scss",
     "typescript",
@@ -204,5 +187,23 @@ require("catppuccin").setup({
 })
 
 vim.diagnostic.config({
-  virtual_text = false,
+    virtual_text = false,
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = '✖',
+            [vim.diagnostic.severity.WARN] = '↦',
+            [vim.diagnostic.severity.INFO] = 'ｉ',
+            [vim.diagnostic.severity.HINT] = '»',
+        },
+        linehl = {
+            [vim.diagnostic.severity.ERROR] = 'DiagnosticSignError',
+            [vim.diagnostic.severity.WARN] = 'DiagnosticSignWarn',
+            [vim.diagnostic.severity.INFO] = 'DiagnosticSignInfo',
+            [vim.diagnostic.severity.HINT] = 'DiagnosticSignHint',
+        },
+    },
+})
+
+require("mason").setup({
+    log_level = vim.log.levels.DEBUG
 })

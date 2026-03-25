@@ -1,17 +1,3 @@
--- Gruvbox Theme
--- Background -- [hard, medium, soft]
-vim.g.gruvbox_material_background = 'hard'
--- Foreground -- [material, mix, original]
-vim.g.gruvbox_material_foreground = 'mix'
-vim.g.gruvbox_material_ui_contrast = 'low'
-vim.g.gruvbox_material_visual = 'red background'
-vim.g.gruvbox_material_current_word = 'italic'
-vim.g.gruvbox_material_transparent_background = 2
-vim.g.gruvbox_material_better_performance = 1
-vim.g.gruvbox_material_dim_inactive_windows = 1
-vim.g.gruvbox_material_disable_italic_comment = 1
-vim.g.gruvbox_material_better_performance = 1
-
 -- Vim JSX Pretty
 vim.g.vim_jsx_pretty_colorful_config = 0
 
@@ -52,5 +38,7 @@ vim.g.gitgutter_sign_removed_first_line = "𝟷"
 vim.g.gitgutter_sign_removed_above_and_below = "↕"
 vim.g.gitgutter_sign_modified_removed = "∣"
 
--- Dart Vim
-vim.g.dart_format_on_save = true
+vim.g.gruvbox_material_background = 'hard'
+vim.g.gruvbox_material_foreground = 'original'
+vim.g.gruvbox_material_better_performance = 1
+vim.g.gruvbox_material_transparent_background = 1

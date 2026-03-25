@@ -5,6 +5,7 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 local on_attach = function(client, bufnr)
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
+  print(bufopts)
 
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
@@ -13,18 +14,17 @@ local on_attach = function(client, bufnr)
 end
 
 -- Adding servers to lspconfig
-local lspconfig = require('lspconfig')
 local servers = { 'ts_ls', 'cssls', 'html', 'jsonls' }
 for _, server in ipairs(servers) do
-  lspconfig[server].setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
+  vim.lsp.config(server, {
+      on_attach = on_attach,
+      capabilities = {},
   })
 end
 
 -- NVIM CMP setup
 local cmp = require('cmp')
-local luasnip = require 'luasnip'
+local luasnip = require('luasnip')
 cmp.setup {
   snippet = {
     expand = function(args)
@@ -43,31 +43,20 @@ cmp.setup {
       select = true,
     },
   }),
-  sources = {
-    { name = 'nvim_lsp' },
-    { name = 'luasnip' },
-    { name = 'path' },
-    { name = 'buffer' },
-  },
+  sources = cmp.config.sources(
+    {
+      { name = 'buffer' },
+      { name = 'path' }
+    }, {
+--       { name = 'nvim_lsp' },
+--       { name = 'luasnip' }
+  })
 }
-
--- Adding diagnostic sign to NVIM
-local signs = { Error = "✖", Warn = "↦", Hint = "»", Info = "ｉ" }
-for type, icon in pairs(signs) do
-	local hl = "DiagnosticSign" .. type
-	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-end
-
--- LSP: UI
-require('lspconfig.ui.windows').default_options.border = 'single'
-
--- LSP: Local Go Server
-lspconfig.gopls.setup({})
-lspconfig.golangci_lint_ls.setup({})
-lspconfig.kotlin_language_server.setup({})
 
 -- LSP Mason
 require("mason").setup()
 require("mason-lspconfig").setup()
 
+-- LSP: Local Go Server
+-- lspconfig.gopls.setup({})
 

@@ -12,6 +12,7 @@ return require('packer').startup({
 
     -- Themes
     use 'catppuccin/nvim'
+    use 'sainnhe/gruvbox-material'
     
     -- Languages & Syntax
     use 'sheerun/vim-polyglot'
@@ -32,9 +33,12 @@ return require('packer').startup({
     use 'nvim-lua/plenary.nvim'
     use 'nvimtools/none-ls.nvim'
     use 'MunifTanjim/prettier.nvim'
-    use 'L3MON4D3/LuaSnip'
-    -- use 'ErichDonGubler/lsp_lines.nvim'
-    use 'Isrothy/lualine-diagnostic-message'
+    use({
+    	"L3MON4D3/LuaSnip",
+    	tag = "v2.*",
+      run = "make install_jsregexp"
+    })
+    use 'ErichDonGubler/lsp_lines.nvim'
     
     -- Features
     use 'preservim/nerdtree'
@@ -51,7 +55,7 @@ return require('packer').startup({
       'nvim-treesitter/nvim-treesitter',
       run = function()
         local ts_install = require('nvim-treesitter.install')
-        ts_install.compilers = { "clang" }
+        ts_install.compilers = { "tsx", "typescript", "clang" }
         local ts_update = ts_install.update({ with_sync = true })
         ts_update()
       end,

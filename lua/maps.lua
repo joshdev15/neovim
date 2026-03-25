@@ -19,15 +19,10 @@ vim.keymap.set("n", "<Leader>w", function()
   vim.print("File Saved")
 end, {})
 
-
 vim.keymap.set("n", "<Leader>W", function()
   vim.cmd("w!")
   vim.print("File Saved")
 end, {})
-
---vim.keymap.set("n", "<Leader>l",
-  --require("lsp_lines").toggle, { desc = "Toggle lsp_lines" }
---)
 
 -- Basic Maps 
 -- SetMap("n", "<Leader>w", ":w<CR>", true, false)
@@ -67,3 +62,20 @@ SetMap("n", "<C-p>", ":GFiles<CR>", true, false)
 SetMap("n", "<C-f>", ":Ag<CR>", true, false)
 SetMap("n", "<C-s>", ":GFiles?<CR>", true, false)
 
+SetMap("n", "<C-n>", ":lua OpenExplorer()<CR>", true, false)
+
+---
+
+function OpenExplorer()
+  local nerd_tree_buf_name = vim.t.NERDTreeBufName
+  
+  if (nerd_tree_buf_name and vim.fn.bufwinnr(nerd_tree_buf_name) ~= -1) then
+    vim.cmd("NERDTreeRefreshRoot")
+    vim.cmd("NERDTreeClose")
+    print("Explorer Closed") 
+  else
+    vim.cmd("NERDTreeRefreshRoot")
+    vim.cmd("NERDTreeFind")
+    print("Explorer Open")
+  end
+end
