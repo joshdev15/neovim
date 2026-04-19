@@ -1,107 +1,75 @@
-# Neovim
+# Neovim Configuration
 
-**Updated to NVIM v0.11.1**
+**Updated to NVIM v0.12.1**
 
-## My Neovim settings
+## Overview / Resumen
 
-This configuration uses Lua as its main language.
+<details open>
+<summary><b>English 🇬🇧</b></summary>
 
-The Lua programming language is supported by Neovim since version **0.5.0**, so it
-is recommended that you upgrade to a higher version than the one mentioned
-above.
+This Neovim configuration uses Lua as its main language. It provides a modern, fast, and feature-rich development environment focusing on Lua, Go, and Web development (TypeScript/React).
 
-Please use the most recent version of Neovim.
-This configuration is tested on Neovim v0.10.0.
+This configuration is tested on **Neovim v0.12.1** and is mainly set up to work on Linux or MacOS. Take precautions if you plan to use it on a different OS.
+</details>
 
-This configuration is mainly set up to work on Linux or MacOS,
-take your precautions if you will use it on a different OS.
+<details>
+<summary><b>Español 🇪🇸</b></summary>
 
-It is also necessary to have the following programs installed and configured;
+Esta configuración de Neovim utiliza Lua como lenguaje principal. Proporciona un entorno de desarrollo moderno, rápido y rico en funciones, centrado en Lua, Go y desarrollo Web (TypeScript/React).
 
-- [Git](https://git-scm.com/)
-- [Nodejs (preferably a recent version)](https://nodejs.org/)
-- [Packer.nvim](https://github.com/wbthomason/packer.nvim)
-- [FZF](https://github.com/junegunn/fzf)
-- [Silver Searcher](https://github.com/ggreer/the_silver_searcher)
+Esta configuración está probada en **Neovim v0.12.1** y está configurada principalmente para funcionar en Linux o MacOS. Toma precauciones si planeas usarla en un sistema operativo diferente.
+</details>
 
-Remember to set your environment variables and binary locations correctly.
+---
 
-You can install any lsp server with :LspInstallInfo nvim command
+## Documentation / Documentación
 
-## Steps to use
+To keep this README clean, detailed instructions and lists have been separated into specific files. Please select your language:
 
-### Download
+Para mantener este README limpio, las instrucciones detalladas y las listas se han separado en archivos específicos. Por favor, selecciona tu idioma:
 
-Once you download this repository, you need to locate it in the correct folder,
-which is:
+### 🇬🇧 English
+- 📖 **[Installation & Prerequisites](docs/en/installation.md):** Detailed guide on required software, moving files, and the first-run experience.
+- 📦 **[Dependencies & Plugins](docs/en/dependencies.md):** A complete list of the plugins and tools powering this configuration.
 
-```java
-$HOME/.config/nvim/
-```
+### 🇪🇸 Español
+- 📖 **[Instalación y Requisitos](docs/es/installation.md):** Guía detallada sobre el software necesario, cómo mover los archivos y la experiencia del primer uso.
+- 📦 **[Dependencias y Plugins](docs/es/dependencies.md):** Una lista completa de los plugins y herramientas que impulsan esta configuración.
 
-You can see what your $HOME is with the following command:
+---
 
-```bash
-echo $HOME
-```
+## Quick Start / Inicio Rápido
 
-You must relocate the child folders and files (lua/, plugin/, init.lua) from the
-root folder to the $HOME/.config/nvim folder
+<details open>
+<summary><b>English 🇬🇧</b></summary>
 
-### Packer
+If you already have the prerequisites installed, here is a quick summary:
 
-Once this step is ready and assuming that you have a recent version of nvim
-installed on your system, you must open an instance of the editor and run the
-command:
+1. Clone or download this repository.
+2. Move the contents (`init.lua` and `lua/` folder) to your Neovim config path:
+   ```bash
+   $HOME/.config/nvim/
+   ```
+3. Open Neovim. The plugin manager ([Lazy.nvim](https://github.com/folke/lazy.nvim)) will install automatically and pull all the plugins.
+4. Run `:Mason` to install LSPs, formatters, and linters.
+5. Treesitter will automatically compile the parsers on the first run.
 
-```bash
-:PackerSync
-```
+Enjoy your new Neovim setup!
+</details>
 
-with the command option of ":".
+<details>
+<summary><b>Español 🇪🇸</b></summary>
 
-The previous command will install the libraries and plugins so that the editor
-is ready to use.
+Si ya tienes los requisitos instalados, aquí tienes un resumen rápido:
 
-### LSP and Mason
+1. Clona o descarga este repositorio.
+2. Mueve el contenido (el archivo `init.lua` y la carpeta `lua/`) a la ruta de configuración de tu Neovim:
+   ```bash
+   $HOME/.config/nvim/
+   ```
+3. Abre Neovim. El gestor de plugins ([Lazy.nvim](https://github.com/folke/lazy.nvim)) se instalará automáticamente y descargará todos los plugins.
+4. Ejecuta `:Mason` para instalar los LSPs, formateadores y linters.
+5. Treesitter compilará automáticamente los parsers en la primera ejecución.
 
-Once the installation is complete, you can run the following command:
-
-```bash
-:Mason
-```
-
-Which will allow you to install: LSP, Linterns and Formatters
-of many languages for your editor through a fairly comfortable
-interface. Which will make its use much easier.
-
-### Treesitter
-
-**Important**
-
-If you are running MacOS with Apple Silicon processors
-(M1, M2 or M3), you need to install the tree-packages from
-a terminal that is not running Rosetta, because it will
-generate errors.
-
-Then I highly recommend installing Treesitter, which helps
-improve syntax highlighting of many languages
-
-You can do it with the following command:
-
-```javascript
-:TSInstall <language>
-```
-
-example:
-
-```javascript
-:TSInstall javascript
-```
-
-You can see the available languages using the command: TSInstallInfo.
-
-I recommend: 'tsx', 'javascript', 'typescript', 'json5', 'css', 'html', 'go', 'rust', 'dart'
-and the other one or others you want.
-
-Enjoy!
+¡Disfruta de tu nueva configuración de Neovim!
+</details>
