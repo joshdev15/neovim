@@ -50,7 +50,7 @@ If you already have the prerequisites installed, here is a quick summary:
    ```bash
    $HOME/.config/nvim/
    ```
-3. Open Neovim. The plugin manager ([Lazy.nvim](https://github.com/folke/lazy.nvim)) will install automatically and pull all the plugins.
+3. Open Neovim. The native package manager will automatically clone and install all the necessary plugins.
 4. Run `:Mason` to install LSPs, formatters, and linters.
 5. Treesitter will automatically compile the parsers on the first run.
 
@@ -67,7 +67,7 @@ Si ya tienes los requisitos instalados, aquí tienes un resumen rápido:
    ```bash
    $HOME/.config/nvim/
    ```
-3. Abre Neovim. El gestor de plugins ([Lazy.nvim](https://github.com/folke/lazy.nvim)) se instalará automáticamente y descargará todos los plugins.
+3. Abre Neovim. El gestor de paquetes nativo clonará e instalará automáticamente todos los plugins necesarios.
 4. Ejecuta `:Mason` para instalar los LSPs, formateadores y linters.
 5. Treesitter compilará automáticamente los parsers en la primera ejecución.
 

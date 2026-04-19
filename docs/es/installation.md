@@ -7,7 +7,7 @@ Esta configuración requiere que ciertos programas estén instalados en tu siste
 Asegúrate de tener instalado lo siguiente en tu sistema:
 
 - **[Neovim](https://neovim.io/):** Por favor, usa la versión más reciente de Neovim (se recomienda v0.12.1 o superior).
-- **[Git](https://git-scm.com/):** Requerido por Lazy.nvim para descargar los plugins y para la integración general con Git.
+- **[Git](https://git-scm.com/):** Requerido por el gestor de paquetes nativo para descargar los plugins y para la integración general con Git.
 - **[Node.js](https://nodejs.org/):** Preferiblemente una versión reciente (se recomienda LTS). Algunos servidores LSP (como `ts_ls` y `html`) y formateadores (como Prettier) requieren Node.js.
 - **[Go (Golang)](https://go.dev/) (Opcional):** Requerido solo si vas a usar el plugin `go.nvim` y el LSP de Go (`gopls`).
 - **[Yarn](https://yarnpkg.com/) (Opcional):** Requerido solo para instalar las dependencias de `vim-prettier`.
@@ -37,12 +37,9 @@ Mueve el contenido de este repositorio (la carpeta `lua/` y el archivo `init.lua
    nvim
    ```
 
-2. **Lazy.nvim** (el gestor de plugins) se inicializará automáticamente y comenzará a descargar todos los plugins especificados en `lua/plugins.lua`.
+2. El **Gestor de Paquetes Nativo** (el script `lua/plugins.lua`) se inicializará automáticamente y comenzará a clonar todos los repositorios necesarios en `~/.local/share/nvim/site/pack/native/start/`.
 
-3. Espera a que termine la instalación. Puedes comprobar el estado de los plugins usando el comando:
-   ```vim
-   :Lazy
-   ```
+3. Espera a que termine la instalación. Es recomendable reiniciar Neovim después de la instalación inicial.
 
 ## 4. Configuración de LSP y Herramientas (Mason)
 
@@ -74,6 +71,6 @@ Treesitter proporciona un mejor resaltado de sintaxis.
 
 ## 6. Configuración de Prettier
 
-La configuración incluye Prettier. Dado que utiliza `yarn install` como su comando de compilación, asegúrate de que `yarn` esté disponible en tu PATH.
+La configuración incluye Prettier. Asegúrate de que `yarn` esté disponible en tu PATH.
 
-Si Prettier no funciona de inmediato, navega hasta el directorio de su plugin (generalmente `~/.local/share/nvim/lazy/vim-prettier`) y ejecuta `yarn install` manualmente.
+Si Prettier no funciona de inmediato, navega hasta el directorio de su plugin (generalmente `~/.local/share/nvim/site/pack/native/start/vim-prettier`) y ejecuta `yarn install` manualmente.

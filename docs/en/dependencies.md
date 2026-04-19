@@ -1,12 +1,12 @@
 # Dependencies & Plugins
 
-This configuration uses [Lazy.nvim](https://github.com/folke/lazy.nvim) as its plugin manager.
+This configuration uses the **Native Package Manager** (`site/pack/native/start/`) for loading plugins instead of a third-party manager like Lazy.nvim.
 
 Here is a list of the main plugins and dependencies used in this project:
 
 | Category | Plugin | Description |
 | :--- | :--- | :--- |
-| **Plugin Manager** | [Lazy.nvim](https://github.com/folke/lazy.nvim) | A modern plugin manager for Neovim. |
+| **Plugin Manager** | **Native** | Neovim's built-in package management system (`packpath`). |
 | **UI & Appearance** | [Catppuccin](https://github.com/catppuccin/nvim) | Soothing pastel theme for Neovim. |
 | | [Gruvbox-Material](https://github.com/sainnhe/gruvbox-material) | A modified version of Gruvbox with softer contrasts. |
 | | [Lualine](https://github.com/nvim-lualine/lualine.nvim) | A blazing fast and easy to configure Neovim statusline written in Lua. |
