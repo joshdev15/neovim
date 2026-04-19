@@ -1,209 +1,81 @@
--- Plugins Settings --
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", "--branch=stable", lazypath })
+end
+vim.opt.rtp:prepend(lazypath)
 
-vim.api.nvim_create_autocmd("BufEnter", {
-  pattern = "*",
-  command = "syn sync maxlines=1000",
-})
+require("lazy").setup({
+  -- Apariencia y UI
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+  { 'sainnhe/gruvbox-material', lazy = false, priority = 1000 },
+  { '/gruvbox-material', lazy = false, priority = 1000 },
+  { 'nvim-lualine/lualine.nvim', dependencies = { 'nvim-tree/nvim-web-devicons' } },
+  { 'nanozuki/tabby.nvim' },
 
-----------------------------------
--- TABBY -- (Linea de pestañas) --
-----------------------------------
-vim.o.showtabline = 2
+  -- Herramientas de Desarrollo (Sustituyen a NERDTree y GitGutter por opciones en Lua)
+  { 'nvim-tree/nvim-tree.lua', dependencies = { 'nvim-tree/nvim-web-devicons' }, config = true },
+  { 'nvim-telescope/telescope.nvim', dependencies = { 'nvim-lua/plenary.nvim' } },
+  { 'lewis6991/gitsigns.nvim', config = true },
+  { 'tpope/vim-surround' },
 
-require('tabby.tabline').set(function(line)
-  return {
-    {
-      { '  </>  ', hl = 'TabLine' },
-      line.sep('', 'TabLine', 'TabLineFill'),
-    },
-    line.tabs().foreach(function(tab)
-      local hl = tab.is_current() and 'TabLineSel' or 'TabLine'
-      return {
-        line.sep('', hl, 'TabLineFill'),
-        tab.is_current() and '' or '',
-        tab.name(),
-        line.sep('', hl, 'TabLineFill'),
-        hl = hl,
-        margin = ' ',
-      }
-    end),
-    line.spacer(),
-    {
-      line.sep('', 'TabLine', 'TabLineFill'),
-      { '', hl = 'TabLine' },
-    },
-    hl = 'TabLineFill',
-  }
-end)
-
-----------------------------------
--- Lualine -- (Linea de estado) --
-----------------------------------
-require('lualine').setup({
-  options = {
-    icons_enabled = false,
-    theme = 'auto',
-    component_separators = { left = '', right = ''},
-    section_separators = { left = '', right = ''},
-    disabled_filetypes = {
-      statusline = {},
-      winbar = {},
-    },
-    ignore_focus = {},
-    always_divide_middle = false,
-    globalstatus = false,
-    refresh = {
-      statusline = 500,
-      tabline = 500,
-      winbar = 500,
-    },
-    symbols = {
-      modified = '✻',
+  -- LSP, Mason y Autocompletado (Tu núcleo de trabajo)
+  { 'williamboman/mason.nvim', config = true },
+  { 'williamboman/mason-lspconfig.nvim' },
+  { 'neovim/nvim-lspconfig' },
+  { 'hrsh7th/nvim-cmp', dependencies = {
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+      'L3MON4D3/LuaSnip',
+      'saadparwaiz1/cmp_luasnip'
     }
   },
-  sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'branch','diff'},
-    lualine_c = {},
-    -- lualine_c = {{'filename', path = 1}},
-    lualine_x = {{'filename', path = 1}},
-    -- lualine_x = {'filetype'},
-    lualine_y = {'location'},
-    lualine_z = {'progress'}
-  },
-  inactive_sections = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_c = {'filename'},
-    lualine_x = {'location'},
-    lualine_y = {},
-    lualine_z = {}
-  },
-  tabline = {},
-  winbar = {},
-  inactive_winbar = {},
-  extensions = {}
-})
 
---------------
--- Prettier --
---------------
-local prettier = require("prettier")
-prettier.setup({
-  bin = 'prettier', -- or `prettierd`
-  filetypes = {
-    "css",
-    "html",
-    "mjs",
-    "javascript",
-    "javascriptreact",
-    "json",
-    "markdown",
-    "scss",
-    "typescript",
-    "typescriptreact",
-    "yaml"
-  }
-})
-
-----------------
--- Treesitter --
-----------------
-require('nvim-treesitter.configs').setup({
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = true,
-  },
-})
-
-local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-parser_config.tsx.filetype_to_parsername = { "javascript", "typescript.tsx", "typescriptreact" }
-
-vim.api.nvim_create_autocmd({'BufEnter','BufAdd','BufNew','BufNewFile','BufWinEnter'}, {
-  group = vim.api.nvim_create_augroup('TS_FOLD_WORKAROUND', {}),
-  callback = function()
-    vim.opt.foldmethod     = 'expr'
-    vim.opt.foldexpr       = 'nvim_treesitter#foldexpr()'
-  end
-})
-
-
-----------------------
--- Catppuccin Theme --
-----------------------
-
-require("catppuccin").setup({
-    -- flavour = final, -- latte, frappe, macchiato, mocha
-    background = { -- :h background
-        light = "latte",
-        dark = "mocha",
+  -- Go
+  {
+    "ray-x/go.nvim",
+    dependencies = {
+      "ray-x/guihua.lua",
+      "neovim/nvim-lspconfig",
+      "nvim-treesitter/nvim-treesitter",
     },
-    transparent_background = true, -- disables setting the background color.
-    show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
-    term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
-    dim_inactive = {
-        enabled = false, -- dims the background color of inactive window
-        shade = "dark",
-        percentage = 0.15, -- percentage of the shade to apply to the inactive window
-    },
-    no_italic = false, -- Force no italic
-    no_bold = false, -- Force no bold
-    no_underline = false, -- Force no underline
-    styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
-        comments = { 'italic' }, -- Change the style of comments
-        conditionals = { 'italic' },
-        loops = { 'italic' },
-        functions = {},
-        keywords = {},
-        strings = {},
-        variables = {},
-        numbers = {},
-        booleans = {},
-        properties = {},
-        types = {},
-        operators = {},
-        -- miscs = {}, -- Uncomment to turn off hard-coded styles
-    },
-    -- color_overrides = {},
-    custom_highlights = function(colors)
-        return {
-            Pmenu = { bg = '#373754' },
-            Float = { bg = '#373754' },
-            NormalFloat = { bg = '#373754' },
-        }
+    config = function()
+      require("go").setup({
+        lsp_cfg = false, 
+        luasnip = true,
+      })
     end,
-    default_integrations = true,
-    integrations = {
-        cmp = true,
-        gitsigns = true,
-        nvimtree = true,
-        treesitter = true,
-        notify = false,
-        mini = {
-            enabled = true,
-            indentscope_color = "",
+    event = { "CmdlineEnter" },
+    ft = { "go", "gomod" },
+    build = ':lua require("go.install").update_all_sync()'
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    event = { "BufReadPost", "BufNewFile" },
+    config = function()
+      -- Usamos pcall para que, si falla, no bloquee todo el editor
+      local status, ts = pcall(require, "nvim-treesitter.configs")
+      if not status then
+          -- Si falla el require antiguo, intentamos inicializarlo de forma básica
+          return 
+      end
+  
+      ts.setup({
+        ensure_installed = { "go", "lua", "typescript", "tsx", "javascript", "html", "css" },
+        highlight = { 
+          enable = true,
+          additional_vim_regex_highlighting = false,
         },
-    },
-})
-
-vim.diagnostic.config({
-    virtual_text = false,
-    signs = {
-        text = {
-            [vim.diagnostic.severity.ERROR] = '✖',
-            [vim.diagnostic.severity.WARN] = '↦',
-            [vim.diagnostic.severity.INFO] = 'ｉ',
-            [vim.diagnostic.severity.HINT] = '»',
-        },
-        linehl = {
-            [vim.diagnostic.severity.ERROR] = 'DiagnosticSignError',
-            [vim.diagnostic.severity.WARN] = 'DiagnosticSignWarn',
-            [vim.diagnostic.severity.INFO] = 'DiagnosticSignInfo',
-            [vim.diagnostic.severity.HINT] = 'DiagnosticSignHint',
-        },
-    },
-})
-
-require("mason").setup({
-    log_level = vim.log.levels.DEBUG
+        indent = { enable = true },
+      })
+    end,
+  },
+  {
+      'numToStr/Comment.nvim',
+      opts = {},
+      lazy = false,
+  },
+  { 'prettier/vim-prettier', build = "yarn install" },
+  -- { 'fatih/vim-go', ft = "go" },
 })

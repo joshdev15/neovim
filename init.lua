@@ -3,7 +3,7 @@
 --------------------------
 
 -- Optional Settings
-vim.o.syntax = "off"
+vim.o.syntax = "on"
 vim.opt.sw = 2
 vim.opt.rnu = true
 vim.opt.number = true
@@ -24,15 +24,14 @@ vim.opt.splitright = true
 vim.opt.foldenable = true
 vim.opt.foldlevelstart = 99
 
+-- Plugins Settings
+require("plugins")
 
 -- LSP Settings
 require("lsp")
 
 -- Vim Settings
 require("settings") 
-
--- Plugins Settings
-require("plugins")
 
 -- Custom KeyMaps
 require("maps") 
@@ -43,9 +42,9 @@ require("maps")
 local result = vim.fn.system("defaults read -g AppleInterfaceStyle")
 local final = "dark"
 if result ~= "Dark\n" then
-	final = "light" 
+  final = "light" 
 else
-	final = "dark"
+  final = "dark"
 end
 
 vim.opt.background = final
